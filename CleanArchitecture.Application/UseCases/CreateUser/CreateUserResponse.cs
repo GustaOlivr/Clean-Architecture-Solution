@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CleanArchitecture.Application.UseCases.CreateUser
+﻿namespace CleanArchitecture.Application.UseCases.CreateUser
 {
+    /// <summary>
+    /// Represents the response returned after creating a new user.
+    /// </summary>
     public sealed record CreateUserResponse
     {
-    public Guid Id {  get; set; }
-    public string? Email {  get; set; }
-    public string? Name {  get; set; }
+        /// <summary>
+        /// Gets or sets the unique identifier of the newly created user.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the email address of the newly created user.
+        /// </summary>
+        public string? Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the newly created user.
+        /// </summary>
+        public string? Name { get; set; }
     }
 }
