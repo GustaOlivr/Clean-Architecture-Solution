@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using CleanArchitecture.Application.Shared.Behavior;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -23,6 +25,9 @@ namespace CleanArchitecture.Application.Services
 
             // Registers all FluentValidation validators from the assemblies of the current executing application.
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+            // Registers the validation behavior pipeline in the CQRS handling mechanism
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         }
     }
 }
