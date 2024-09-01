@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a user entity in the domain.
     /// </summary>
-    public sealed class User
+    public sealed class User : BaseEntity
     {
         /// <summary>
         /// Email address of the user.
