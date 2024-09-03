@@ -20,11 +20,11 @@ namespace CleanArchitecture.Persistence
         public static void ConfigurePersistenceApp(this IServiceCollection services,
                                                     IConfiguration configuration)
         {
-            // Retrieve the connection string for the SQLite database from configuration settings.
-            string connectionString = configuration.GetConnectionString("Sqlite");
+            string connectionStringPostgre = configuration.GetConnectionString("Postgre");
 
-            // Configure the DbContext to use SQLite with the retrieved connection string.
-            services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString));
+            services.AddDbContext<AppDbContext>(opt =>
+                opt.UseNpgsql(connectionStringPostgre,
+                    b => b.MigrationsAssembly("CleanArchitecture.Persistence")));
 
             // Register the UnitOfWork and UserRepository services with scoped lifetime.
             services.AddScoped<IUnitOfWork, UnitOfWork>();
