@@ -29,6 +29,7 @@ namespace CleanArchitecture.Persistence.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserConfiguration());
+            //Add other configurations
         }
     }
 }
