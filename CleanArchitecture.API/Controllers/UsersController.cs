@@ -31,17 +31,26 @@ namespace CleanArchitecture.API.Controllers
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            var validator = new CreateUserValidator();
-            var validatorResult = await validator.ValidateAsync(request);
+            //var validator = new CreateUserValidator();
+            //var validatorResult = await validator.ValidateAsync(request);
 
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
-
+            //if (!validatorResult.IsValid)
+            //{
+            //    return BadRequest(validatorResult.Errors);
+            //}
+            //try
+            //{
             var response = await _mediator.Send(request, cancellationToken);
 
             return Ok(response);
+            //}
+
+            //catch (FluentValidation.ValidationException ex) 
+            //{
+            //    return BadRequest(new {Message = ex.Message});
+
+            //}
+
         }
     }
 }
