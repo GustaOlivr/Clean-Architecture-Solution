@@ -20,11 +20,33 @@ namespace CleanArchitecture.Persistence
         public static void ConfigurePersistenceApp(this IServiceCollection services,
                                                     IConfiguration configuration)
         {
-            string connectionStringPostgre = configuration.GetConnectionString("Postgre");
+            //switch string for use other database config for apply migration
+            string UseDb = "SqlServer";
 
-            services.AddDbContext<AppDbContext>(opt =>
-                opt.UseNpgsql(connectionStringPostgre,
+            switch (UseDb)
+            {
+                case "SqlServer":
+                    services.AddDbContext<AppDbContext>(opt =>
+                    opt.UseSqlServer(configuration.GetConnectionString("SqlServer"),
                     b => b.MigrationsAssembly("CleanArchitecture.Persistence")));
+                    break;
+
+                case "Postgre":
+                    services.AddDbContext<AppDbContext>(opt =>
+                    opt.UseNpgsql(configuration.GetConnectionString("Postgre"),
+                    b => b.MigrationsAssembly("CleanArchitecture.Persistence")));
+                    break;
+
+                default:
+                    services.AddDbContext<AppDbContext>(opt =>
+                    opt.UseSqlServer(configuration.GetConnectionString("SqlServer"),
+                    b => b.MigrationsAssembly("CleanArchitecture.Persistence")));
+                    break;
+            }
+
+
+
+
 
             // Register the UnitOfWork and UserRepository services with scoped lifetime.
             services.AddScoped<IUnitOfWork, UnitOfWork>();
