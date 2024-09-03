@@ -11,15 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A3BBC523-4759-4CBA-90E9-F9498055A868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "Domain\CleanArchitecture.Domain.csproj", "{C26766D3-59FA-4EE5-8774-175967455F94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Domain", "Domain\CleanArchitecture.Domain.csproj", "{C26766D3-59FA-4EE5-8774-175967455F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{B14F00CA-CE6A-4A15-BB82-F73C8939DB98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{B14F00CA-CE6A-4A15-BB82-F73C8939DB98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Persistence", "Persistence\CleanArchitecture.Persistence.csproj", "{6C36A224-C526-4A46-8B06-69CC2493D582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Persistence", "Persistence\CleanArchitecture.Persistence.csproj", "{6C36A224-C526-4A46-8B06-69CC2493D582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.API", "CleanArchitecture.API\CleanArchitecture.API.csproj", "{7B3A81E9-57F7-467A-B181-A3D8B8BB4C02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.API", "CleanArchitecture.API\CleanArchitecture.API.csproj", "{7B3A81E9-57F7-467A-B181-A3D8B8BB4C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Tests", "CleanArchitecture.Tests\CleanArchitecture.Tests.csproj", "{E3CEEC8B-E156-4307-9A16-EF5EB826E58E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Tests", "CleanArchitecture.Tests\CleanArchitecture.Tests.csproj", "{E3CEEC8B-E156-4307-9A16-EF5EB826E58E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infra.Data.EF.Mapping", "CleanArchitecture.Infra.Data.EF.Mapping\CleanArchitecture.Infra.Data.EF.Mapping.csproj", "{9D0A57C6-3A17-4048-8C69-C5D24B45940B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{E3CEEC8B-E156-4307-9A16-EF5EB826E58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3CEEC8B-E156-4307-9A16-EF5EB826E58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3CEEC8B-E156-4307-9A16-EF5EB826E58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0A57C6-3A17-4048-8C69-C5D24B45940B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0A57C6-3A17-4048-8C69-C5D24B45940B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0A57C6-3A17-4048-8C69-C5D24B45940B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0A57C6-3A17-4048-8C69-C5D24B45940B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{6C36A224-C526-4A46-8B06-69CC2493D582} = {F37960F3-78A8-4BA5-A0B5-1C3B50C9E4D9}
 		{7B3A81E9-57F7-467A-B181-A3D8B8BB4C02} = {3CF67DE1-7FA1-4223-ADAC-8BE12CA87FEC}
 		{E3CEEC8B-E156-4307-9A16-EF5EB826E58E} = {A3BBC523-4759-4CBA-90E9-F9498055A868}
+		{9D0A57C6-3A17-4048-8C69-C5D24B45940B} = {F37960F3-78A8-4BA5-A0B5-1C3B50C9E4D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A3906EA-E068-4424-93B5-FCD52347735E}
