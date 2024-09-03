@@ -16,8 +16,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-CreateDatabase(app);
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -34,9 +32,3 @@ app.MapControllers();
 app.Run();
 
 
-void CreateDatabase(WebApplication app)
-{
-    var serviceScope = app.Services.CreateScope();
-    var dataContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
-    dataContext?.Database.EnsureCreated();
-}
