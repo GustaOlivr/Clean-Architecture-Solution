@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.UseCases.CreateUser;
 using CleanArchitecture.Application.UseCases.GetAllUser;
+using CleanArchitecture.Application.UseCases.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,10 +55,32 @@ namespace CleanArchitecture.API.Controllers
 
         }
 
+
+        /// <summary>
+        /// Get all users.
+        /// </summary>
+        /// <param name="cancellationToken">Token to cancel the operation.</param>
+        /// <returns>Returns a list with all users</returns>
         [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
+            List<GetAllUserResponse> response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
+            return Ok(response);
+        }
+
+
+        [HttpPut("{id}")]
+
+        public async Task<ActionResult<UpdateUserResponse>> Update(Guid id,
+                                                                   UpdateUserRequest request, 
+                                                                   CancellationToken cancellationToken)
+        {
+            if (id != request.Id)
+            {
+                return BadRequest();
+            }
+
+            var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
     }
