@@ -8,7 +8,7 @@ namespace CleanArchitecture.Application.UseCases.CreateUser
     /// <summary>
     /// Handles the creation of a new user in the system by processing the <see cref="CreateUserRequest"/>.
     /// </summary>
-    internal class CreateUserHandler : IRequestHandler<CreateUserRequest, CreateUserResponse>
+    public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, CreateUserResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
