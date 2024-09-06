@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchitecture.Application\CleanArchitecture.Application.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Infra.Data.EF.Mapping\CleanArchitecture.Infra.Data.EF.Mapping.csproj" />
     <ProjectReference Include="..\Domain\CleanArchitecture.Domain.csproj" />
   </ItemGroup>
