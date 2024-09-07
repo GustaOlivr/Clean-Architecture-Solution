@@ -3,9 +3,15 @@ using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.UseCases.DeleteUser
 {
-    public sealed class DeleteUserMapper :  Profile
+    /// <summary>
+    /// Mapper profile for deleting users, defining mappings between request, user entity, and response.
+    /// </summary>
+    public sealed class DeleteUserMapper : Profile
     {
-        public DeleteUserMapper() 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteUserMapper"/> class.
+        /// </summary>
+        public DeleteUserMapper()
         {
             CreateMap<DeleteUserRequest, User>();
             CreateMap<User, DeleteUserResponse>();

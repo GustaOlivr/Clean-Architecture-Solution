@@ -1,18 +1,18 @@
 ﻿using FluentValidation;
-using FluentValidation.Validators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchitecture.Application.UseCases.DeleteUser
 {
+    /// <summary>
+    /// Validator for the <see cref="DeleteUserRequest"/> to ensure the ID is provided and valid.
+    /// </summary>
     public class DeleteUserValidator : AbstractValidator<DeleteUserRequest>
     {
-        public DeleteUserValidator() 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteUserValidator"/> class.
+        /// </summary>
+        public DeleteUserValidator()
         {
-            RuleFor(x=> x.Id).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
         }
     }
 }

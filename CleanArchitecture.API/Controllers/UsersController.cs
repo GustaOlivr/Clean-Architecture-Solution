@@ -34,34 +34,15 @@ namespace CleanArchitecture.API.Controllers
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            //var validator = new CreateUserValidator();
-            //var validatorResult = await validator.ValidateAsync(request);
-
-            //if (!validatorResult.IsValid)
-            //{
-            //    return BadRequest(validatorResult.Errors);
-            //}
-            //try
-            //{
             var response = await _mediator.Send(request, cancellationToken);
-
             return Ok(response);
-            //}
-
-            //catch (FluentValidation.ValidationException ex) 
-            //{
-            //    return BadRequest(new {Message = ex.Message});
-
-            //}
-
         }
-
 
         /// <summary>
         /// Get all users.
         /// </summary>
         /// <param name="cancellationToken">Token to cancel the operation.</param>
-        /// <returns>Returns a list with all users</returns>
+        /// <returns>Returns a list with all users.</returns>
         [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {
@@ -69,12 +50,15 @@ namespace CleanArchitecture.API.Controllers
             return Ok(response);
         }
 
-
+        /// <summary>
+        /// Updates an existing user.
+        /// </summary>
+        /// <param name="id">The ID of the user to update.</param>
+        /// <param name="request">The request object containing updated user information.</param>
+        /// <param name="cancellationToken">Token to cancel the operation.</param>
+        /// <returns>Returns the updated user information.</returns>
         [HttpPut("{id}")]
-
-        public async Task<ActionResult<UpdateUserResponse>> Update(Guid id,
-                                                                   UpdateUserRequest request, 
-                                                                   CancellationToken cancellationToken)
+        public async Task<ActionResult<UpdateUserResponse>> Update(Guid id, UpdateUserRequest request, CancellationToken cancellationToken)
         {
             if (id != request.Id)
             {
@@ -85,9 +69,14 @@ namespace CleanArchitecture.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Deletes a user by ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to delete.</param>
+        /// <param name="cancellationToken">Token to cancel the operation.</param>
+        /// <returns>Returns the deleted user information.</returns>
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteUserResponse>> Delete(Guid? id,
-                                                                   CancellationToken cancellationToken)
+        public async Task<ActionResult<DeleteUserResponse>> Delete(Guid? id, CancellationToken cancellationToken)
         {
             if (id is null)
             {
@@ -95,7 +84,6 @@ namespace CleanArchitecture.API.Controllers
             }
 
             var deleteUserRequest = new DeleteUserRequest(id.Value);
-
             var response = await _mediator.Send(deleteUserRequest, cancellationToken);
             return Ok(response);
         }
